@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>NoBody217's World</title><meta name="author" content="Zlt"><meta name="copyright" content="Zlt"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="NoBody217&#39;s World">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="NoBody217&#39;s World">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:author" content="Zlt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NoBody217\'s World',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/bg.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">97</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">103</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">NoBody217's World</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">NoBody217's World</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/22/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%AC%94%E8%AE%B0-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" title="笔记-树状数组">笔记-树状数组</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-22T03:00:00.000Z" title="发表于 2026-03-22 11:00:00">2026-03-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content"> 概述  树状数组用于解决单点修改与前缀区间查询问题的高效数据结构. 适用于所有满足可减性/可逆性的区间信息维护（最典型的是区间求和）.不能直接用于求区间最值 (RMQ). 核心思想是利用数字的二进制特征（lowbit）对区间进行巧妙划分.查询和修改的时间复杂度均为极小常数的 O(log⁡N)O(\log N)O(logN)，空间复杂度仅为 O(N)O(N)O(N).   核心原理：lowbit 与管辖区间  lowbit(x) 的作用是取出数字 xxx 的二进制表示中，最低位的 1 以及它后面的 0 所构成的数值. 位运算实现：x &amp; -x. 在树状数组 C 中，节点 C[x] 存储的是原数组 A 中从 x - lowbit(x) + 1 到 x 这段区间的总和,也就是长为lobit的区间   算法流程  1. 核心工具：lowbit  用于计算管辖区间的长度  123auto lowbit = [&amp;](int x) -&gt; int &#123;     return x &amp; -x; &#125;;  2. 单点修改 (add)  作用：给原数组的第...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/22/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="笔记-线段树 (Segment Tree)">笔记-线段树 (Segment Tree)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-21T16:15:00.000Z" title="发表于 2026-03-22 00:15:00">2026-03-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="content"> 概述  线段树用于解决区间查询(如区间求和、区间最值)与区间修改的数据结构. 核心思想是基于分治 (Divide and Conquer),将一个大区间不断二分为两个子区间,形成一棵二叉树. 有区间修改就需要有lazy tag,否则每次修改的复杂度可能退化到O(N∗log⁡N)O(N*\log N)O(N∗logN) 配合Lazy Tag,可以使区间查询和区间修改的时间复杂度严格稳定在 O(log⁡N)O(\log N)O(logN).空间上通常需要开辟 4×N4 \times N4×N 的数组大小.   算法流程 (以维护区间最小值为例)  1. 向上更新 (pushup)  作用：利用左右儿子的信息,更新父节点的信息. 在 build 和 change 函数向回溯时调用.  123void pushup(int p) &#123;    t[p] = min(t[p * 2], t[p * 2 + 1]); // 求最值&#125;  2. 延迟下传 (pushdown)  作用：当查询或修改需要进入子树时,将当前节点身上挂着的 Lazy Tag 传递给它的左右儿子. 铁律...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/22/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-3-21/" title="训练-2026.3.21">训练-2026.3.21</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-21T16:10:00.000Z" title="发表于 2026-03-22 00:10:00">2026-03-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%AD%E7%BB%83/">日常训练</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E6%8B%9F/">大模拟</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">字符串处理</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%B4%AA%E5%BF%83/">贪心</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a></span></div><div class="content"> PAT甲级-1060 Are They Equal PTA-L2-037 包装机 PTA-L2-034 口罩发放 PTA-L3-017 森森快递 冬春换季,近两天眼睛痒+头疼+流鼻涕,训练进度严重放缓 两个大模拟直接红温了   T1: PAT甲级 1060 Are They Equal  题意  给定两个数字字符串(可能包含前导零、纯小数、无小数点等各种形态),判断它们在保留 NNN 位有效数字的科学计数法下是否严格相等.   思路  写模拟前一定先想好再开写 最好不要写一堆分支判断,很容易变成屎山,工程化方法是更好的 流水线做法:  统一格式:如果没有小数点 .,强行在字符串末尾加上一个 .. 找首位:寻找全串中第一个既不是 0 也不是 . 的字符下标 pos 如果找不到(pos == -1),说明是0,这里0也不要做特判,因为0可能给出多种形式(00.0,0.00,0…) 算指数:如果 pos 在小数点前面,指数为 dot - pos；如果在小数点后面,指数为 dot - pos + 1.纯 0 的指数强行记为 0. 截取有效位:从 pos 开始向后抓取最多 NNN 个数字...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/19/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-3-19/" title="训练-2026.3.19">训练-2026.3.19</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-19T13:50:00.000Z" title="发表于 2026-03-19 21:50:00">2026-03-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%9B%BE%E8%AE%BA/">图论</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%BF%9E%E9%80%9A%E5%9D%97%E7%BB%B4%E6%8A%A4/">连通块维护</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%AC%A7%E6%8B%89%E5%9B%BE/">欧拉图</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%93%88%E5%AF%86%E9%A1%BF%E7%8E%AF/">哈密顿环</a></span></div><div class="content"> L1-070 吃火锅 L1-032 Left-pad L2-023 图着色问题 PAT甲级 1122 Hamiltonian Cycle PAT甲级 1126 Eulerian Path   T1: L1-070 吃火锅 &amp; L1-032 Left-pad  题意  字符串基础模拟题，考察字符串的子串查找与格式化拼接。   思路  两个比较被给的字符串,没啥可说的   T2: L2-023 图着色问题  题意  给定一张无向图和每种颜色的编号。验证所给方案是否满足：  使用的颜色总数恰好等于 KKK 种。 任意一条边的两个端点颜色不同。     思路  别读错题,注意是恰好k个 图染色合法性校验。 使用 std::set 收集当前方案中所有的颜色编号 遍历所有图中的点 uuu 及其邻居 vvv，若发现 color[u] == color[v]，则立即判定不合法   代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#inc...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/18/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-3-18/" title="训练-2026.3.18">训练-2026.3.18</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-18T15:40:00.000Z" title="发表于 2026-03-18 23:40:00">2026-03-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%AD%E7%BB%83/">日常训练</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">字符串处理</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%B4%AA%E5%BF%83/">贪心</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/set/">set</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E4%BA%8C%E5%88%86/">二分</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">树状数组</a></span></div><div class="content"> PTA-L2-008 PTA-L2-014 PTA-L2-022 PTA-L3-002   T1: L2-008 最长对称子串  题意  给定一个包含空格的字符串，求其中最长的回文子串的长度。   思路  长度小于1000,读入以后暴力检查就行   代码 1234567891011121314151617181920212223242526272829303132333435363738394041// 8:43#include &lt;bits/stdc++.h&gt;using namespace std;#define endl &#x27;\n&#x27;using ll = long long;using pii = pair&lt;int, int&gt;;using pll = pair&lt;long long, long long&gt;;void solve() &#123;  string s;  getline(cin, s);  int n = s.size();  int ans = 0;  auto check = [&amp;](string x...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/17/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%AC%94%E8%AE%B0-DSU/" title="笔记-拓扑排序">笔记-拓扑排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-17T03:05:00.000Z" title="发表于 2026-03-17 11:05:00">2026-03-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%9B%BE%E8%AE%BA/">图论</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">拓扑排序</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/DAG/">DAG</a></span></div><div class="content"> 概述  拓扑排序用来解决任务调度、依赖关系解析等带有明确先后约束的问题. 适用于有向无环图 (DAG, Directed Acyclic Graph). 核心的思想是“剥洋葱”:每次只处理当前没有任何前置依赖的节点. 配合队列 (Kahn算法) 实现，整体时间复杂度为 O(N+M)O(N + M)O(N+M)（NNN 为点数，MMM 为边数）.   算法流程  初始化:  维护一个 in_deg (入度) 数组，建图时统计每个节点的入度（即有多少条边指向它）. 扫描所有节点，将所有初始入度为 0 的节点塞入队列 q.   取出队头 (Kahn 算法核心):  从队列中弹出一个节点 u，将其加入答案序列 topo_order.   消除依赖 (松弛):  遍历 u 的所有出边指向的邻居 v. 因为 u 已经执行完毕，v 的前置依赖减少 1 个，即 in_deg[v]--. 如果 in_deg[v] 减到了 0，说明 v 的所有前置任务已完成，将其塞入队列 q.   重复以上步骤直到队列为空.  12345678910111213141516171819// 初始化队列，推入所有入...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/17/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E7%AC%94%E8%AE%B0-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" title="笔记-拓扑排序">笔记-拓扑排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-17T03:05:00.000Z" title="发表于 2026-03-17 11:05:00">2026-03-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%9B%BE%E8%AE%BA/">图论</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">拓扑排序</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/DAG/">DAG</a></span></div><div class="content"> 概述  拓扑排序用来解决任务调度、依赖关系解析等带有明确先后约束的问题. 适用于有向无环图 (DAG, Directed Acyclic Graph). 核心的思想是“剥洋葱”：每次只处理当前没有任何前置依赖的节点. 配合队列 (Kahn算法) 实现，整体时间复杂度为 O(N+M)O(N + M)O(N+M)（NNN 为点数，MMM 为边数）.   算法流程  初始化:  维护一个 in_deg (入度) 数组，建图时统计每个节点的入度（即有多少条边指向它）. 扫描所有节点，将所有初始入度为 0 的节点塞入队列 q.   取出队头 (Kahn 算法核心):  从队列中弹出一个节点 u，将其加入答案序列 topo_order.   消除依赖 (松弛):  遍历 u 的所有出边指向的邻居 v. 因为 u 已经执行完毕，v 的前置依赖减少 1 个，即 in_deg[v]--. 如果 in_deg[v] 减到了 0，说明 v 的所有前置任务已完成，将其塞入队列 q.   重复以上步骤直到队列为空.  123456789101112131415161718192021// 初始化队列，推...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/17/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-3-17/" title="训练-2026.3.17">训练-2026.3.17</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-17T03:00:00.000Z" title="发表于 2026-03-17 11:00:00">2026-03-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">拓扑排序</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%AD%E7%BB%83/">日常训练</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">字符串处理</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%A0%91%E5%BD%A2DFS-%E8%AE%B0%E5%BF%86%E5%8C%96/">树形DFS / 记忆化</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%A0%91%E4%B8%8A%E8%B4%AA%E5%BF%83/">树上贪心</a></span></div><div class="content"> PTA-L1-094 剪切粘贴 PTA-L2-026 小字辈 PTA-L2-043 龙龙送外卖 PAT甲级-1146 Topological Order PS:龙龙送外卖,新题型or思维题,树上贪心   T1: L1-094 剪切粘贴  题意  给定字符串,多次截取指定区间的子串,拼接到目标子串的前/后,若找不到则拼在末尾. 昨天模考的“心态粉碎机”,今天完美复仇.   思路  遵循“先提取 -&gt; 再抹除 -&gt; 再寻找 -&gt; 最后拼接”的流水线. s.substr() 提取子串,s.erase() 删去原位置,在干净的原串中用 s.find() 找目标位置,最后再次用 substr 分段拼接. 注意算好位置和长度再写,别乱写然后改,浪费时间   代码 1234567891011121314151617181920212223242526272829303132333435363738394041// 8:00#include &lt;bits/stdc++.h&gt;using namespace std;#define endl &#x27;\n&#x27;...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/16/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-3-16/" title="训练-2026.3.16 (模拟考 2023 GPLT)">训练-2026.3.16 (模拟考 2023 GPLT)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-16T14:00:00.000Z" title="发表于 2026-03-16 22:00:00">2026-03-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%AD%E7%BB%83/">日常训练</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%8B%9F/">字符串模拟</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%9C%9F%E9%A2%98/">天梯赛真题</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E6%8B%9F/">大模拟</a></span></div><div class="content"> 序  2023 年第八届团体程序设计天梯赛 (GPLT) 真题 得分：175 分/ 290 分 战况：L1 全对(但被T6字符串卡了 30 分钟),L2 做出 3 题(差 L2-3 锦标赛),L3 三题未能有效拿分(L3-1 陷入代码屎山)   L1 毒瘤String  L1-094 剪切粘贴  题意  给定一个文本串,多次操作：每次截取指定区间的一段子串,然后拼接到给定的两个目标字符串的中间. 如果两目标字符串不存在或不相邻,则拼接到原文本的末尾.   思路  卡了30分钟最后做完L2回来看才搞出来. 考查 std::string 的组合使用：substr 提取子串,erase 删除原位置子串,find 寻找目标串. 注意0-base下标   代码 1234567891011121314151617181920212223242526272829303132333435363738394041#include &lt;bits/stdc++.h&gt;using namespace std;#define endl &#x27;\n&#x27;using ll = long ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/03/15/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-3-15/" title="训练-2026.3.15">训练-2026.3.15</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-03-15T15:30:00.000Z" title="发表于 2026-03-15 23:30:00">2026-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%AD%E7%BB%83/">日常训练</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%8B%9F/">字符串模拟</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%A0%91%E5%BD%A2DFS/">树形DFS</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Dijkstra/">Dijkstra</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%88%86%E6%90%9C/">爆搜</a></span></div><div class="content">  1:18:19 4/5   LCA没看出来能爆搜,然后不会LCA   PTA-L1-086 斯德哥尔摩火车上的题   PTA-L1-093 猜帽子游戏   PTA-L2-038 病毒溯源   PTA-L2-016 愿天下有情人都是失散多年的兄妹   PTA-L3-007 天梯地图    T1: L1-086 斯德哥尔摩火车上的题  题意  给出两个字符串,分别计算相邻两个字符的 ASCII 码差值. 如果两个字符串经过计算后,连续的差值序列（只保留差值为偶数的项）完全一致,则输出这个序列；否则输出指定的字符串.   思路  纯模拟,手速题   代码 1234567891011121314151617181920212223242526272829303132333435363738394041#include &lt;bits/stdc++.h&gt;using namespace std;#define endl &#x27;\n&#x27;using ll = long long;using pii = pair&lt;int, int&gt;;using pll = p...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#content-inner">10</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Zlt</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">97</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">103</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/NoBody217"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">一个很菜的算竞选手的blog<br>一个苦逼的CS学生的自留地......</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/12/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-12/" title="训练-2026.4.12">训练-2026.4.12</a><time datetime="2026-04-12T15:00:00.000Z" title="发表于 2026-04-12 23:00:00">2026-04-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/11/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-11/" title="训练-2026.4.11">训练-2026.4.11</a><time datetime="2026-04-11T15:00:00.000Z" title="发表于 2026-04-11 23:00:00">2026-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/10/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-10/" title="训练-2026.4.10">训练-2026.4.10</a><time datetime="2026-04-10T15:00:00.000Z" title="发表于 2026-04-10 23:00:00">2026-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/09/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-9/" title="训练-2026.4.9">训练-2026.4.9</a><time datetime="2026-04-09T15:00:00.000Z" title="发表于 2026-04-09 23:00:00">2026-04-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/08/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-8/" title="训练-2026.4.8">训练-2026.4.8</a><time datetime="2026-04-08T15:00:00.000Z" title="发表于 2026-04-08 23:00:00">2026-04-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BUAA-OS/"><span class="card-category-list-name">BUAA-OS</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"><span class="card-category-list-name">算法竞赛</span><span class="card-category-list-count">94</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E8%B7%AF%E5%BE%84%E5%9B%9E%E6%BA%AF/" style="font-size: 1.1em; color: #999">路径回溯</a> <a href="/tags/dijkstra/" style="font-size: 1.1em; color: #999">dijkstra</a> <a href="/tags/%E6%A0%88/" style="font-size: 1.1em; color: #999">栈</a> <a href="/tags/%E6%A0%91%E5%BD%A2DFS-%E8%AE%B0%E5%BF%86%E5%8C%96/" style="font-size: 1.1em; color: #999">树形DFS / 记忆化</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">笔记</a> <a href="/tags/print/" style="font-size: 1.1em; color: #999">print</a> <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" style="font-size: 1.1em; color: #999">组合数学</a> <a href="/tags/%E6%A0%91%E9%81%8D%E5%8E%86/" style="font-size: 1.14em; color: #999b9d">树遍历</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 1.32em; color: #99a2ae">计算几何</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 1.19em; color: #999da1">构造</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 1.19em; color: #999da1">思维</a> <a href="/tags/%E6%9E%81%E5%9D%90%E6%A0%87/" style="font-size: 1.1em; color: #999">极坐标</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 1.37em; color: #99a4b2">模拟</a> <a href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" style="font-size: 1.46em; color: #99a7bb">每日一题</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9F%BA/" style="font-size: 1.1em; color: #999">线性基</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96prim/" style="font-size: 1.1em; color: #999">数据结构优化prim</a> <a href="/tags/%E6%9A%B4%E5%8A%9B%E9%AA%97%E5%88%86/" style="font-size: 1.1em; color: #999">暴力骗分</a> <a href="/tags/LCA/" style="font-size: 1.14em; color: #999b9d">LCA</a> <a href="/tags/%E7%89%9B%E5%AE%A2%E5%AF%92%E8%AE%AD/" style="font-size: 1.23em; color: #999ea6">牛客寒训</a> <a href="/tags/%E5%B0%B1%E5%9C%B0%E6%BB%9A%E5%8A%A8/" style="font-size: 1.1em; color: #999">就地滚动</a> <a href="/tags/%E6%A0%91%E4%B8%8A%E8%B4%AA%E5%BF%83/" style="font-size: 1.1em; color: #999">树上贪心</a> <a href="/tags/NK%E5%91%A8%E8%B5%9B/" style="font-size: 1.1em; color: #999">NK周赛</a> <a href="/tags/%E5%88%92%E5%88%86%E5%9E%8Bdp/" style="font-size: 1.1em; color: #999">划分型dp</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 1.19em; color: #999da1">拓扑排序</a> <a href="/tags/dfs/" style="font-size: 1.1em; color: #999">dfs</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 1.28em; color: #99a0aa">图论</a> <a href="/tags/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 1.1em; color: #999">完全二叉树</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.1em; color: #999">数学</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 1.19em; color: #999da1">二分</a> <a href="/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 1.14em; color: #999b9d">二分答案</a> <a href="/tags/%E7%BA%BF%E6%80%A7dp/" style="font-size: 1.41em; color: #99a5b7">线性dp</a> <a href="/tags/ATcoder/" style="font-size: 1.1em; color: #999">ATcoder</a> <a href="/tags/%E5%9B%BE%E8%AE%BA%E5%BB%BA%E5%9B%BE/" style="font-size: 1.1em; color: #999">图论建图</a> <a href="/tags/Dijkstra/" style="font-size: 1.23em; color: #999ea6">Dijkstra</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E8%AE%AD%E7%BB%83/" style="font-size: 1.1em; color: #999">专项训练</a> <a href="/tags/%E6%A8%A1%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">模处理</a> <a href="/tags/%E5%9B%BE%E8%AE%BA%E8%BF%9E%E9%80%9A/" style="font-size: 1.1em; color: #999">图论连通</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E6%8B%9F/" style="font-size: 1.14em; color: #999b9d">大模拟</a> <a href="/tags/%E9%AA%97%E5%88%86%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">骗分技巧</a> <a href="/tags/%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">容斥原理</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              四月 2026
+            </span>
+            <span class="card-archive-list-count">11</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/03/">
+            <span class="card-archive-list-date">
+              三月 2026
+            </span>
+            <span class="card-archive-list-count">29</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">26</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/01/">
+            <span class="card-archive-list-date">
+              一月 2026
+            </span>
+            <span class="card-archive-list-count">31</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">97</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">85k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-12T09:17:02.541Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Zlt</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["虽然说难过也难过","虽说过难然难也过"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["虽然说难过也难过","虽说过难然难也过"])
+}
+typedJSFn.run(subtitleType)</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>
