@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>BUAA-OS-lab2 | NoBody217's World</title><meta name="author" content="Zlt"><meta name="copyright" content="Zlt"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="思考题  Thinking 2.1  均为虚拟地址。   Thinking 2.2  单向、循环、双向链表插入删除性能核心差异在前驱获取和尾部操作：  头结点操作三者性能一致； 单向链表任意位置操作均需遍历找前驱，O(n)复杂度，性能最差； 双向链表无需遍历找前驱，仅需判空，效率更高，但尾部操作仍需遍历； 循环链表维护尾指针，尾部插入&#x2F;删除无需遍历，边界仅判头指针，综合性能最优。     Thi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUAA-OS-lab2">
+<meta property="og:url" content="http://example.com/2026/04/26/OS/BUAA-OS-lab2/index.html">
+<meta property="og:site_name" content="NoBody217&#39;s World">
+<meta property="og:description" content="思考题  Thinking 2.1  均为虚拟地址。   Thinking 2.2  单向、循环、双向链表插入删除性能核心差异在前驱获取和尾部操作：  头结点操作三者性能一致； 单向链表任意位置操作均需遍历找前驱，O(n)复杂度，性能最差； 双向链表无需遍历找前驱，仅需判空，效率更高，但尾部操作仍需遍历； 循环链表维护尾指针，尾部插入&#x2F;删除无需遍历，边界仅判头指针，综合性能最优。     Thi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:published_time" content="2026-04-26T02:45:23.000Z">
+<meta property="article:modified_time" content="2026-04-26T06:28:22.875Z">
+<meta property="article:author" content="Zlt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "BUAA-OS-lab2",
+  "url": "http://example.com/2026/04/26/OS/BUAA-OS-lab2/",
+  "image": "http://example.com/img/avatar.jpg",
+  "datePublished": "2026-04-26T02:45:23.000Z",
+  "dateModified": "2026-04-26T06:28:22.875Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Zlt",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/04/26/OS/BUAA-OS-lab2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'BUAA-OS-lab2',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/bg.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">99</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">106</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">NoBody217's World</span></a><a class="nav-page-title" href="/"><span class="site-name">BUAA-OS-lab2</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">BUAA-OS-lab2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-26T02:45:23.000Z" title="发表于 2026-04-26 10:45:23">2026-04-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-26T06:28:22.875Z" title="更新于 2026-04-26 14:28:22">2026-04-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/BUAA-OS/">BUAA-OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">6.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>23 mins.分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="思考题"><a class="markdownIt-Anchor" href="#思考题"></a> 思考题</h1>
+<h2 id="thinking-21"><a class="markdownIt-Anchor" href="#thinking-21"></a> Thinking 2.1</h2>
+<ul>
+<li>均为虚拟地址。</li>
+</ul>
+<h2 id="thinking-22"><a class="markdownIt-Anchor" href="#thinking-22"></a> Thinking 2.2</h2>
+<ul>
+<li>单向、循环、双向链表插入删除性能核心差异在前驱获取和尾部操作：
+<ul>
+<li>头结点操作三者性能一致；</li>
+<li>单向链表任意位置操作均需遍历找前驱，O(n)复杂度，性能最差；</li>
+<li>双向链表无需遍历找前驱，仅需判空，效率更高，但尾部操作仍需遍历；</li>
+<li>循环链表维护尾指针，尾部插入/删除无需遍历，边界仅判头指针，综合性能最优。</li>
+</ul>
+</li>
+</ul>
+<h2 id="thinking-23"><a class="markdownIt-Anchor" href="#thinking-23"></a> Thinking 2.3</h2>
+<ul>
+<li>C对</li>
+</ul>
+<h2 id="thinking-24"><a class="markdownIt-Anchor" href="#thinking-24"></a> Thinking 2.4</h2>
+<ul>
+<li>不同进程的页表不同，同一虚拟地址可能映射到不同的物理空间，需要使用ASID来区分当前虚拟地址属于哪个进程，同时只有维护了ASID的TLB才能够同时维护多个进程的地址映射</li>
+<li>4kc的ASID为8位，最多有256个不同的地址空间</li>
+</ul>
+<h2 id="thinking-25"><a class="markdownIt-Anchor" href="#thinking-25"></a> Thinking 2.5</h2>
+<ul>
+<li>tlb_invalidate调用tlb_out</li>
+<li>把tlb内的和传入参数对的上的表项的key和val全部清零</li>
+</ul>
+<figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">LEAF(tlb_out)</span><br><span class="line"><span class="meta">.set</span> <span class="keyword">noreorder</span></span><br><span class="line"><span class="keyword"></span>    <span class="keyword">mfc0 </span>   <span class="built_in">t0</span>, CP0_ENTRYHI</span><br><span class="line">  <span class="comment">/* a0内是旧表项的key */</span></span><br><span class="line">    <span class="keyword">mtc0 </span>   <span class="built_in">a0</span>, CP0_ENTRYHI</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span>    <span class="comment">/* Step 1: Use &#x27;tlbp&#x27; to probe TLB entry */</span></span><br><span class="line">    <span class="comment">/* Exercise 2.8: Your code here. (1/2) */</span></span><br><span class="line">  <span class="comment">/* 调用tlbp通过key获取idx */</span></span><br><span class="line">  <span class="keyword">tlbp</span></span><br><span class="line"><span class="keyword"></span>    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span>    <span class="comment">/* Step 2: Fetch the probe result from CP0.Index */</span></span><br><span class="line">  <span class="comment">/* 获取index */</span></span><br><span class="line">    <span class="keyword">mfc0 </span>   <span class="built_in">t1</span>, CP0_INDEX</span><br><span class="line"><span class="meta">.set</span> reorder</span><br><span class="line">  <span class="comment">/* 小于0直接退出 */</span></span><br><span class="line">    <span class="keyword">bltz </span>   <span class="built_in">t1</span>, NO_SUCH_ENTRY</span><br><span class="line"><span class="meta">.set</span> <span class="keyword">noreorder</span></span><br><span class="line"><span class="keyword"></span>  <span class="comment">/* 大于0就全部清零然后按索引写入 */</span></span><br><span class="line">    <span class="keyword">mtc0 </span>   <span class="built_in">zero</span>, CP0_ENTRYHI</span><br><span class="line">    <span class="keyword">mtc0 </span>   <span class="built_in">zero</span>, CP0_ENTRYLO0</span><br><span class="line">    <span class="keyword">mtc0 </span>   <span class="built_in">zero</span>, CP0_ENTRYLO1</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"></span>    <span class="comment">/* Step 3: Use &#x27;tlbwi&#x27; to write CP0.EntryHi/Lo into TLB at CP0.Index  */</span></span><br><span class="line">    <span class="comment">/* Exercise 2.8: Your code here. (2/2) */</span></span><br><span class="line">  <span class="keyword">tlbwi</span></span><br><span class="line"><span class="keyword"></span><span class="meta">.set</span> reorder</span><br></pre></td></tr></table></figure>
+<h2 id="thinking-26"><a class="markdownIt-Anchor" href="#thinking-26"></a> Thinking 2.6</h2>
+<ul>
+<li>调用函数用jal跳转到对应函数，同时记录返回地址到$ra，并且维护栈空间，把需要用到的寄存器的原有值保存到栈</li>
+<li>函数执行过程可能进行修改和访存，所以调用结束后用栈中的值恢复寄存器，最后通过jr回到原地址</li>
+</ul>
+<h2 id="thinking-27"><a class="markdownIt-Anchor" href="#thinking-27"></a> Thinking 2.7</h2>
+<ul>
+<li>RISC-V</li>
+<li>RISC-V通过SATP寄存器控制多级页表，硬件自动页表遍历，支持4KB页，PTE 8B，每级512项，虚拟地址分VPN与页内偏移，TLB为硬件管理缓存。<br />
+核心区别：
+<ol>
+<li>页表遍历：RISC-V硬件自动遍历；MIPS为软件TLB，缺页异常需OS填充TLB。</li>
+<li>TLB管理：RISC-V硬件维护；MIPS OS完全控制，支持多种页大小。</li>
+<li>地址模式：RISC-V多模式适配不同位宽；MIPS固定32/64位，无统一SATP类寄存器。</li>
+<li>页表结构：RISC-V统一多级页表；MIPS传统二级页表，自映射设计不同。</li>
+<li>特权级：RISC-V SATP集成页表基址/ASID；MIPS分离控制寄存器。</li>
+</ol>
+</li>
+</ul>
+<h2 id="thinking-a1"><a class="markdownIt-Anchor" href="#thinking-a1"></a> Thinking A1</h2>
+<ul>
+<li>三级页表页目录（一级页表）基地址：PTbase</li>
+<li>自映射项：位置为页目录第511项（0开始，共512项），物理地址PTbase+4088，存储值为PTbase</li>
+</ul>
+<h1 id="难点分析"><a class="markdownIt-Anchor" href="#难点分析"></a> 难点分析</h1>
+<ul>
+<li>需要阅读的代码量很大</li>
+<li>需要重新理解链表和指针</li>
+<li>需要重新理解TLB相关知识</li>
+<li>代码中有c和mips的反复跳转，难以阅读</li>
+</ul>
+<h1 id="实验体会"><a class="markdownIt-Anchor" href="#实验体会"></a> 实验体会</h1>
+<ul>
+<li>线上实验
+<ul>
+<li>仿照page_remove写即可</li>
+</ul>
+</li>
+<li>线下实验
+<ul>
+<li>exam是新增一个链表宏，完成插入到链表的第i个位置</li>
+<li>使用LIST_FOREACH即可，注意结构体的使用需要<code>struct type</code></li>
+<li>extra自映射没搞懂，课后补一下题</li>
+</ul>
+</li>
+</ul>
+<h1 id="原创说明"><a class="markdownIt-Anchor" href="#原创说明"></a> 原创说明</h1>
+<ul>
+<li>本实验报告依据指导书、仓库代码和个人理解独立完成</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Zlt</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2026/04/26/OS/BUAA-OS-lab2/">http://example.com/2026/04/26/OS/BUAA-OS-lab2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">NoBody217's World</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/04/13/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-13/" title="训练-2026.4.13"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">训练-2026.4.13</div></div><div class="info-2"><div class="info-item-1"> 概述  2026天梯赛模拟赛 L1,L2都通过 L3通过T1   L3  T1: L3-T1 Heap  题意  给定一个完全二叉树的层序遍历，判断是不是二叉堆，并输出后序遍历   思路  判断一个完全二叉树是否为堆，不需要从叶子往上溯源，这会带来极高的编码复杂度和边界风险。 降维打击：只需要一个 O(N)O(N)O(N) 的 for 循环，从 i = 2 遍历到 N。 如果存在 t[i] &gt; t[i/2]，绝对不是大顶堆；如果存在 t[i] &lt; t[i/2]，绝对不是小顶堆。4 行代码完成所有逻辑收束。   代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677#include &lt;bits/stdc++.h&gt;#define endl &#x27;\n&#x27;using namespace std;int n;v...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Zlt</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">99</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">106</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/NoBody217"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">一个很菜的算竞选手的blog<br>一个苦逼的CS学生的自留地......</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text"> 思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-21"><span class="toc-number">1.1.</span> <span class="toc-text"> Thinking 2.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-22"><span class="toc-number">1.2.</span> <span class="toc-text"> Thinking 2.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-23"><span class="toc-number">1.3.</span> <span class="toc-text"> Thinking 2.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-24"><span class="toc-number">1.4.</span> <span class="toc-text"> Thinking 2.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-25"><span class="toc-number">1.5.</span> <span class="toc-text"> Thinking 2.5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-26"><span class="toc-number">1.6.</span> <span class="toc-text"> Thinking 2.6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-27"><span class="toc-number">1.7.</span> <span class="toc-text"> Thinking 2.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thinking-a1"><span class="toc-number">1.8.</span> <span class="toc-text"> Thinking A1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text"> 难点分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="toc-number">3.</span> <span class="toc-text"> 实验体会</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%88%9B%E8%AF%B4%E6%98%8E"><span class="toc-number">4.</span> <span class="toc-text"> 原创说明</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/26/OS/BUAA-OS-lab2/" title="BUAA-OS-lab2">BUAA-OS-lab2</a><time datetime="2026-04-26T02:45:23.000Z" title="发表于 2026-04-26 10:45:23">2026-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/13/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-13/" title="训练-2026.4.13">训练-2026.4.13</a><time datetime="2026-04-13T15:00:00.000Z" title="发表于 2026-04-13 23:00:00">2026-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/12/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-12/" title="训练-2026.4.12">训练-2026.4.12</a><time datetime="2026-04-12T15:00:00.000Z" title="发表于 2026-04-12 23:00:00">2026-04-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/11/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-11/" title="训练-2026.4.11">训练-2026.4.11</a><time datetime="2026-04-11T15:00:00.000Z" title="发表于 2026-04-11 23:00:00">2026-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/10/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E8%AE%AD%E7%BB%83-2026-4-10/" title="训练-2026.4.10">训练-2026.4.10</a><time datetime="2026-04-10T15:00:00.000Z" title="发表于 2026-04-10 23:00:00">2026-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Zlt</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.staticfile.net/KaTeX/0.16.9/katex.min.css')
+    if (true) {
+      await btf.getScript('https://cdn.staticfile.net/KaTeX/0.16.9/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3"></script></div></div></body></html>
